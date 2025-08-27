@@ -34,7 +34,7 @@ This tool is especially useful for users who prefer the traditional keyboard lay
 ### Auto-Start with Windows
 If you want the script to run automatically every time you start your laptop:
 1. Press `Win + R`, type `shell:startup`, and press Enter.  
-2. Copy the `CopilotKeyRemapper.ahk` file into the Startup folder.  
+2. Copy the `remap_copilot_key.exe` file into the Startup folder.  
 3. Now the remapping will load with Windows automatically.  
 
 ## Troubleshooting
