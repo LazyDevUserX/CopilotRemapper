@@ -8,6 +8,7 @@ ProcessSetPriority "High"
 
 ; --- Hardcoded Shortcuts (Instant Response) ---
 #HotIf GetKeyState("f23", "P")
+    a::Send "^a"
     c::Send "^c"
     v::Send "^v"
     x::Send "^x"
