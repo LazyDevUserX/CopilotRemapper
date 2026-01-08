@@ -1,96 +1,81 @@
-# Copilot Key Remapper
+# CopilotRemapper
 
-## Overview
+**CopilotRemapper** is a high-performance AutoHotkey v2 utility that reclaims the "Copilot" key on modern Windows keyboards, transforming it into a fully functional **Right Control (RCtrl)** key.
 
-**Copilot Key Remapper** is a simple script designed to remap the Copilot key on modern laptops to function as a standard right Control key.  
-This tool is especially useful for users who prefer the traditional keyboard layout and functionality.
+This project is a fork and enhancement of the original [CopilotKeyRemap by A-4-Atom](https://github.com/A-4-Atom/CopilotKeyRemap). This version introduces "Hybrid Logic" to eliminate input lag and adds specialized intercepts for media and navigation.
 
-## Why Use This Tool Instead of PowerToys or Windows Settings?
+---
 
-- **Lighter & Faster:** This script is minimal compared to PowerToys.  
-- **One-Click Setup:** No need to dig through multiple settings.  
-- **Focused Functionality:** It does one job, remapping the Copilot key reliably.  
+##  Quick Start
+*Get up and running in under a minute.*
 
-## Features
+1. **Install Requirements**
+   Download and install [AutoHotkey v2.0+](https://www.autohotkey.com/).
 
-- Remaps the Copilot key to the right Control key.  
-- Easy to use and lightweight.  
-- Open-source and customizable.
+2. **Download the Script**
+   Save the `CopilotRemapper.ahk` file from this repository to your computer.
 
-## Download
+3. **Activate**
+   Double-click the file to run the script. Your Copilot key now acts as Right Control.
 
-You can download the script directly from the [Releases page](https://github.com/A-4-Atom/CopilotKeyRemap/releases/tag/v1.0.0).
+4. **Set it to Auto-Start**
+   Press `Win + R`, type `shell:startup`, and hit **Enter**. Move a **shortcut** of the script into this folder so it runs every time you turn on your PC.
 
-## Usage
+> [!TIP]
+> **Prefer a standalone app?** Check the **Releases** tab for a pre-compiled `.exe` version that doesn't require AutoHotkey to be installed.
+---
 
-You can use this tool in two ways:
+##  Features & Built-in Shortcuts
+While holding the **Copilot** key, the following shortcuts are "Fast-Tracked" for instant response:
 
-### 1. Run the Precompiled EXE
+| Shortcut | Action | Optimized For |
+| :--- | :--- | :--- |
+| **C / V / X / Z** | Copy, Paste, Cut, Undo | General Productivity |
+| **T / W** | New Tab / Close Tab | Web Browsers (Edge/Chrome) |
+| **Up / Down** | Volume / Media Scroll | VLC / YouTube / Edge |
+| **. (Period)** | Emoji Panel | Windows UI |
+| **/ (Slash)** | Search / Comment | App Specific Actions |
 
-- Run `remap_copilot_key.exe` to apply the key remapping.
-- This EXE is simply the official [AutoHotkey](https://www.autohotkey.com/) runtime compiled with our script.
+---
 
-### 2. Run the Script Manually (Recommended for Security)
+##  For Power Users: Adding Custom Shortcuts
 
-- Download and install [AutoHotkey](https://www.autohotkey.com/).
-- Run `remap_copilot_key.ahk` by double-clicking it, or right-click and select "Run Script".
+You can easily extend this script to include your own custom `Ctrl + [Key]` combinations. This is useful for app-specific workflows like Photoshop or VS Code.
 
-> **Tip:** You can review the `.ahk` script in this repository to see exactly what it does.
+### How to add your own:
+1. Open `CopilotRemapper.ahk` in any text editor.
+2. Find the `#HotIf GetKeyState("f23", "P")` section.
+3. Add a new line following this format: `KeyName::Send "^KeyName"`
 
-## Installation
+**Example: Adding a shortcut for "Save" (Ctrl+S):**
+``` autohotkey
+#HotIf GetKeyState("f23", "P")
+    s::Send "^s"  ; Triggers Ctrl + S
+#HotIf
+ ```
+> [!TIP]
+> If you aren't sure how to write a specific shortcut, you can copy the script into an LLM (like Gemini or ChatGPT) and ask: "Add a shortcut to this script so that Copilot + [Your Key] triggers [Your Action]
 
-1. Clone the repository:
+## How It Works
+Modern keyboards implement the Copilot key as a hardware macro: `Left Shift + Left Windows + F23`. 
 
-    ```bash
-    git clone https://github.com/A-4-Atom/CopilotKeyRemap.git
-    ```
+**CopilotRemapper** targets the **F23** virtual signal directly. It suppresses the forced `Shift` and `Win` modifiers instantly to prevent the Start Menu from flickering. This "Hybrid" approach allows the key to work as a "Hold" modifier (like a real Ctrl key) while ensuring common shortcuts fire with zero lag.
 
-2. Navigate to the directory:
+---
 
-    ```bash
-    cd CopilotKeyRemap
-    ```
+##  FAQ & Troubleshooting
 
-3. Run the script:
+* **Start Menu flickering?** Go to **Settings > Personalization > Text Input** and set "Copilot key" to **None**. This removes the Windows-level conflict.
+* **Not working in Games or Task Manager?** Windows blocks scripts from high-security apps. Right-click the script and select **"Run as Administrator"**.
+* **Key feels "stuck"?** Press `Ctrl + Alt + Shift + R` to force-reset the script and all virtual keys.
 
-    ```bash
-    remap_copilot_key.exe
-    ```
+---
 
-### Auto-Start with Windows
+## 🤝 Credits & Contributing 
+* **Original Creator:** [A-4-Atom](https://github.com/A-4-Atom) for the foundational research into the `F23` scancode.
+* **Contributing:** If you would like to contribute improvements or bug fixes, please do so at the **[original repository](https://github.com/A-4-Atom/CopilotKeyRemap)** to ensure the entire community benefits from your changes. This repository is maintained for personal use and specific optimizations
 
-If you want the script to run automatically every time you start your laptop:
+---
 
-1. Press `Win + R`, type `shell:startup`, and press Enter.  
-2. Copy the `remap_copilot_key.exe` file into the Startup folder.  
-3. Now the remapping will load with Windows automatically.  
-
-## Troubleshooting
-
-- **Remap not working?**  
-  Try running the script as **Administrator**.
-
-- **Changes not taking effect?**  
-  Press `Ctrl + Shift + Alt + R` to reload the script instantly.
-
-- **Antivirus warning?**  
-  Some antivirus programs may flag AutoHotkey scripts.  
-  Download only from the [official releases](https://github.com/A-4-Atom/CopilotKeyRemap/releases/tag/v1.0.0) or run the `.ahk` file with [AutoHotkey](https://www.autohotkey.com/).
-
-- **Still not working?**  
-  Restart your computer.
-
-- **Key behaving strangely?**  
-  Remove the file from the Startup folder and restart.
-
-## Contributing
-
-I welcome contributions! Please fork the repository and submit a pull request with your changes.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Contact
-
-For any questions or suggestions, feel free to open an issue or contact me at **<vikaschauhan2626@gmail.com>**.
+##  License
+This project is licensed under the **MIT License**.
