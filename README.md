@@ -22,7 +22,7 @@ This project is a fork and enhancement of the original [CopilotKeyRemap by A-4-A
    Press `Win + R`, type `shell:startup`, and hit **Enter**. Move a **shortcut** of the script into this folder so it runs every time you turn on your PC.
 
 > [!TIP]
-> **Prefer a standalone app?** Check the **Releases** tab for a pre-compiled `.exe` version that doesn't require AutoHotkey to be installed.
+> **Prefer a standalone app?** Check the **[Release](https://github.com/LazyDevUserX/CopilotRemapper/releases)** tab for a pre-compiled `.exe` version that doesn't require AutoHotkey to be installed.
 ---
 
 ##  Features & Built-in Shortcuts
