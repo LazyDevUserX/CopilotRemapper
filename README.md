@@ -31,9 +31,10 @@ While holding the **Copilot** key, the following shortcuts are "Fast-Tracked" fo
 | Shortcut | Action | Optimized For |
 | :--- | :--- | :--- |
 | **C / V / X / Z** | Copy, Paste, Cut, Undo | General Productivity |
+| **A** |Select All|General Prductivity|
 | **T / W** | New Tab / Close Tab | Web Browsers (Edge/Chrome) |
 | **Up / Down** | Volume / Media Scroll | VLC / YouTube / Edge |
-| **. (Period)** | Emoji Panel | Windows UI |
+| **. (Period) , (Comma)** | For Setting As Hotkeys | Other Applications |
 | **/ (Slash)** | Search / Comment | App Specific Actions |
 
 ---
